@@ -1,4 +1,6 @@
 ﻿
+using System.Reflection;
+
 Person User1 = new Person();
 Console.WriteLine("Enter your first name");
 User1.FirstName = Console.ReadLine();
@@ -27,13 +29,22 @@ User1.BirthDate = Console.ReadLine();
 Console.WriteLine("Enter your address");
 User1.Address = Console.ReadLine();
 
-List<Person> list = new List<Person>();
-list.Add(User1);
-
 var path = "d://Maktab//Information.txt";
-File.Create(path);
 
 
+foreach (PropertyInfo propertyInfo in User1.GetType().GetProperties())
+{
+    File.AppendAllText(path, propertyInfo.GetValue(User1, null).ToString() + "\n");
+}
+foreach (var item in File.ReadAllLines(path))
+{
+    File.ReadAllText(path);
+    Console.WriteLine(item);
+}
+
+
+
+File.WriteAllText(path, " ");
 
 string info = User1.FirstName + "," + User1.LastName + "," + User1.IdNumber + "," + User1.Height + "," + User1.Mobile + "," + User1.FatherName + "," + User1.Weight + "," + User1.BirthDate + "," + User1.Address;
 string showinfo = User1.FirstName + "," + User1.LastName + "," + User1.IdNumber;

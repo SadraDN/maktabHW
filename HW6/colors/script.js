@@ -13,7 +13,7 @@ function addoption(color)
   var getEl = document.getElementById('color-select');
   var option = document.createElement('option');
   option.text= color;
-  option.value= color
+  option.value= color;
   getEl.add(option); 
 }
 
@@ -23,45 +23,20 @@ for (i=0 ; i<data.length ; i++)
   addoption(color);
 }
 
-// document.getElementById('color-select').addEventListener('change' , boxcolorchange)
-
-onclick= boxcolorchange;
-
 function boxcolorchange()
 {
 var selectBox = document.getElementById("color-select").value;
 var boxcolor = document.getElementById("box");
+boxcolor.style.backgroundColor = selectBox;
+setTimeout(() => {
+  boxcolor.style.backgroundColor = defaultColor;
+}, 1000);
+}
+
+onclick= boxcolorchange;
 
 
-if (selectBox == 'Teal')
-{
-  boxcolor.style.backgroundColor = 'Teal';
-  setTimeout(function () { boxcolor.style.backgroundColor = 'silver' }, 1000);
-}
-if (selectBox == 'SkyBlue')
-{
-  boxcolor.style.backgroundColor = 'SkyBlue';
-  setTimeout(function () { boxcolor.style.backgroundColor = 'silver' }, 1000);
-}
-if (selectBox == 'DarkSeaGreen')
-{
-  boxcolor.style.backgroundColor = 'DarkSeaGreen';
-  setTimeout(function () { boxcolor.style.backgroundColor = 'silver' }, 1000);
-}
-if (selectBox == 'Purple')
-{
-  boxcolor.style.backgroundColor = 'Purple';
-  setTimeout(function () { boxcolor.style.backgroundColor = 'silver' }, 1000);
-}
-if (selectBox == 'LightPink')
-{
-  boxcolor.style.backgroundColor = 'LightPink';
-  setTimeout(function () { boxcolor.style.backgroundColor = 'silver' }, 1000);
-}
-if (selectBox == 'Crimson')
-{
-  boxcolor.style.backgroundColor = 'Crimson';
-  setTimeout(function () { boxcolor.style.backgroundColor = 'silver' }, 1000);
-}
-}
+  
+
+
 

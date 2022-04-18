@@ -33,8 +33,7 @@ setTimeout(() => {
 }, 1000);
 }
 
-onclick= boxcolorchange;
-
+addEventListener('change',boxcolorchange);
 
   
 
